@@ -1,0 +1,33 @@
+Code usage:
+----------
+
+1. Data Description:
+   ----------------
+
+	a. 3D LES simulation data of flow over flate plate from RWTH Aachen in HDF5 format and friction coefficient information in DAT format.
+
+2. Data Preparation:
+   ----------------
+
+	a. The current version of the code can handle only 2D data in .npz or .npy formats.
+		-> Convert 3D HDF5 data to 2D .npz data using hdf5tonpz.py script.
+		-> Multiple 2D slices can be prepared in parallel.
+		-> hdf5tonpz.py currently handles the following flow variables: pressure, density, velocities (x, y, and z), and vorticities (x, y, and z).
+		-> NOTE: vorticity information can be added to the HDF5 files using the addVorticity.py script.
+
+	b. For variable ranking, dataset matrix have to be prepared using the .npz files. 
+		-> Use prepareData.py script to prepare the dataset matrix
+		-> prepareData.py can also be used to prepare multiple datasets in parallel. 
+		-> ATTENTION: In the PrepareDataSet class used by the prepareData.py script, it is important to include the parameters (velocity and time step) of the surface wave used. These parameters can be calculated using the WavePropCalculator.py.
+		-> Check the description of prepDataSet.py for more information on the PrepareDataSet class.
+
+3. Variable Ranking:
+   ----------------
+
+	a. Once dataset is prepared, variable ranking can be performed. 
+		-> main.py is an example script for utilizing the variable ranking tools VarRanking and CumulativeRanking.
+		-> Check the description in the varRanking.py script for more information on the variable ranking tools.
+		-> Current version of the variable ranking tools handle only 2D data.
+		-> Multiple iteration of variable ranking can be performed in parallel.
+
+
