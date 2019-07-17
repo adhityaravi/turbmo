@@ -29,5 +29,10 @@ Code usage:
 		-> Check the description in the varRanking.py script for more information on the variable ranking tools.
 		-> Current version of the variable ranking tools handle only 2D data.
 		-> Multiple iteration of variable ranking can be performed in parallel.
+		
+Report:
+-------
+
+A complete report for this project can be found on https://drive.google.com/open?id=1nOM-NXVstTgvx9hy7Znemya3nhAzwVqi
 
 
